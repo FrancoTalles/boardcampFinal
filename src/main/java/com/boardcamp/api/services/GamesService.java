@@ -30,7 +30,6 @@ public class GamesService {
             throw new GameAlreadyExistsException("Um jogo com esse nome já existe");
         }
 
-
         return gamesRepository.save(game);
     }
 }

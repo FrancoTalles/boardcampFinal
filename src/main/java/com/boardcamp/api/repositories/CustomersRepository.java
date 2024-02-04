@@ -5,11 +5,11 @@ import java.util.UUID;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.boardcamp.api.models.GamesModel;
+import com.boardcamp.api.models.CustomersModel;
 import java.util.List;
 
 
 @Repository
-public interface GamesRepository extends JpaRepository<GamesModel, UUID> {
-    List<GamesModel> findByName(String name);
+public interface CustomersRepository extends JpaRepository<CustomersModel, UUID>{
+    List<CustomersModel> findByCpf(String cpf);
 }
