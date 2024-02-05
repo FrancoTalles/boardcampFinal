@@ -22,4 +22,29 @@ public class GlobalExceptionsHandler {
     public ResponseEntity<String> handleCustomerAlreadyExists(CustomerAlreadyExistsException exception) {
         return ResponseEntity.status(HttpStatus.CONFLICT).body(exception.getMessage());
     }
+
+    @ExceptionHandler({ GameNotFoundException.class })
+    public ResponseEntity<String> handleGameNotFound(GameNotFoundException exception) {
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(exception.getMessage());
+    }
+
+    @ExceptionHandler({ GameIsSoldOutException.class })
+    public ResponseEntity<String> handleGameSoldOut(GameIsSoldOutException exception) {
+        return ResponseEntity.status(HttpStatus.UNPROCESSABLE_ENTITY).body(exception.getMessage());
+    }
+
+    @ExceptionHandler({ GameAlreadyRentedException.class })
+    public ResponseEntity<String> handleGameAlreadyRented(GameAlreadyRentedException exception) {
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(exception.getMessage());
+    }
+
+    @ExceptionHandler({ RentalNotFoundException.class })
+    public ResponseEntity<String> handleRentalNotFound(RentalNotFoundException exception) {
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(exception.getMessage());
+    }
+
+    @ExceptionHandler({ RentalAlreadyFinishException.class })
+    public ResponseEntity<String> handleRentalAlreadyFinish(RentalAlreadyFinishException exception) {
+        return ResponseEntity.status(HttpStatus.UNPROCESSABLE_ENTITY).body(exception.getMessage());
+    }
 }

@@ -1,5 +1,6 @@
 package com.boardcamp.api.controllers;
 
+import java.util.List;
 import java.util.UUID;
 
 import org.springframework.http.HttpStatus;
@@ -27,8 +28,14 @@ public class CustomersController {
         this.customersService = customersService;
     }
 
+    @GetMapping
+    public ResponseEntity<List<CustomersModel>> getAllCustomers() {
+        List<CustomersModel> customers = customersService.findAll();
+        return ResponseEntity.status(HttpStatus.OK).body(customers);
+    }
+
     @GetMapping("/{id}")
-    public ResponseEntity<CustomersModel> getUserById(@PathVariable UUID id) {
+    public ResponseEntity<CustomersModel> getCustomerById(@PathVariable UUID id) {
         CustomersModel customer = customersService.findById(id);
         return ResponseEntity.status(HttpStatus.OK).body(customer);
     }

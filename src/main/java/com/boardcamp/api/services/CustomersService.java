@@ -1,5 +1,6 @@
 package com.boardcamp.api.services;
 
+import java.util.List;
 import java.util.UUID;
 
 import org.springframework.stereotype.Service;
@@ -18,6 +19,10 @@ public class CustomersService {
 
     CustomersService(CustomersRepository customersRepository) {
         this.customersRepository = customersRepository;
+    }
+
+    public List<CustomersModel> findAll() {
+        return customersRepository.findAll();
     }
 
     public CustomersModel findById(@NonNull UUID id) {
