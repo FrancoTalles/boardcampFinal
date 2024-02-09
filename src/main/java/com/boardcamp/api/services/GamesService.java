@@ -24,9 +24,9 @@ public class GamesService {
     public GamesModel save(GamesDTO dto) {
         GamesModel game = new GamesModel(dto);
 
-        List<GamesModel> exists = gamesRepository.findByName(dto.getName());
+        boolean exists = gamesRepository.existsByName(dto.getName());
 
-        if(!exists.isEmpty()){
+        if(exists){
             throw new GameAlreadyExistsException("Um jogo com esse nome já existe");
         }
 

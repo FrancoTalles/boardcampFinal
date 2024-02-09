@@ -37,10 +37,12 @@ public class RentalsService {
 
     public RentalsModel save(RentalsDTO dto) {
 
+        @SuppressWarnings("null")
         GamesModel game = gamesRepository.findById(dto.getGameId()).orElseThrow(
             () -> new GameNotFoundException("Não existe o jogo informado em nosso banco de dados!")
         );
 
+        @SuppressWarnings("null")
         CustomersModel customer = customersRepository.findById(dto.getCustomerId()).orElseThrow(
             () -> new CustomerNotFoundException("Não existe o cliente informado em nosso banco de dados!")
         );
@@ -64,6 +66,7 @@ public class RentalsService {
 
     public RentalsModel finishRental(UUID id) {
         
+        @SuppressWarnings("null")
         RentalsModel rental = rentalsRepository.findById(id).orElseThrow(
             () -> new RentalNotFoundException("Não existe o aluguel informado!")
         );
