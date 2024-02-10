@@ -40,7 +40,7 @@ public class RentalsController {
     @PostMapping
     public ResponseEntity<RentalsModel> createRental(@RequestBody @Valid RentalsDTO body) {
         RentalsModel rental = rentalsService.save(body);
-        return ResponseEntity.status(HttpStatus.OK).body(rental);
+        return ResponseEntity.status(HttpStatus.CREATED).body(rental);
     }
 
     @PutMapping("/{id}/return")

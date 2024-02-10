@@ -37,6 +37,6 @@ public class GamesController {
     @PostMapping
     public ResponseEntity<GamesModel> createGame(@RequestBody @Valid GamesDTO body){
         GamesModel game = gamesService.save(body);
-        return ResponseEntity.status(HttpStatus.OK).body(game);
+        return ResponseEntity.status(HttpStatus.CREATED).body(game);
     }
 }

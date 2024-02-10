@@ -43,8 +43,8 @@ public class CustomersController {
     }
 
     @PostMapping
-    public ResponseEntity<CustomersModel> createRecipe(@RequestBody @Valid CustomersDTO body){
+    public ResponseEntity<CustomersModel> createCustomers(@RequestBody @Valid CustomersDTO body){
         CustomersModel customer = customersService.save(body);
-        return ResponseEntity.status(HttpStatus.OK).body(customer);
+        return ResponseEntity.status(HttpStatus.CREATED).body(customer);
     }
 }
